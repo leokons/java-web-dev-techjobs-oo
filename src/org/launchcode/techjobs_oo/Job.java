@@ -6,7 +6,6 @@ public class Job {
 
     private int id;
     private static int nextId = 1;
-
     private String name;
     private Employer employer;
     private Location location;
@@ -44,6 +43,41 @@ public class Job {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    @Override
+    public String toString() {
+        String str= "\nID: " + this.id;
+
+        if (this.name == null && this.employer == null && this.location == null && this.positionType == null && this.coreCompetency == null) {
+            return str = "OOPS! This job does not seem to exist.";
+        }
+        if (this.name == "") {
+            str = str + "\nName: " + "Data not available" ;
+        } else {
+            str = str + "\nName: " + this.name ;
+        }
+        if (this.employer.getValue() == "") {
+            str = str + "\nEmployer: " + "Data not available" ;
+        } else {
+            str = str + "\nEmployer: " + this.employer ;
+        }
+        if (this.location.getValue() == "") {
+            str = str + "\nLocation: " + "Data not available" ;
+        } else {
+            str = str + "\nLocation: " + this.location ;
+        }
+        if (this.positionType.getValue() == "") {
+            str = str + "\nPosition Type: " + "Data not available" ;
+        } else {
+            str = str + "\nPosition Type: " + this.positionType ;
+        }
+        if (this.coreCompetency.getValue() == "") {
+            str = str + "\nCore Competency: " + "Data not available\n" ;
+        } else {
+            str = str + "\nCore Competency: " + this.coreCompetency + "\n" ;
+        }
+        return str;
     }
 
 
